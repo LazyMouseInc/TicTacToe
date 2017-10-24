@@ -24,5 +24,13 @@ public class TestTicTacToe{
 		assertEquals('O', ttt.getStatus(2,2));
 
 	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void testIllegalInput(){
+		TicTacToe ttt = new TicTacToe();
+
+		ttt.setStatus('1');
+		ttt.setStatus('1');
+	}
 	
 }
