@@ -1,5 +1,5 @@
 package is.ru.tictactoe;
-
+import java.util.Scanner;
 public class TicTacToe{
 
 	private static boolean gameOver = false;
@@ -18,8 +18,54 @@ public class TicTacToe{
 		gameArr[2][1] = '8';
 		gameArr[2][2] = '9';
 	}
-	
+
 	public static char getStatus(int row, int col){
 		return gameArr[row][col];
+	}
+
+	private static void printArray(){
+		System.out.println();
+		for(int i = 0; i < 3; i++){
+			for(int j = 0; j < 3; j++){
+				System.out.print(gameArr[i][j] + " ");
+			}
+			System.out.println();
+		}
+	}
+
+	private static void turn() {
+		Scanner sc = new Scanner(System.in);
+		if(whoseTurn) {
+			System.out.print("X, make a move: ");
+			char input = sc.nextLine().charAt(0);
+			setStatus(input);
+		}
+		else {
+			System.out.print("O, make a move: ");
+			char input = sc.nextLine().charAt(0);
+			setStatus(input);
+		}
+	}
+
+	public static void setStatus(char input) {
+		for(int i = 0; i < 3; i++) {
+			for(int j = 0; j < 3; j++) {
+				if(input == gameArr[i][j] && input != 'O' && input != 'X') {
+					if(whoseTurn) {
+						gameArr[i][j] = 'X';
+						whoseTurn = !whoseTurn;
+						return;
+					}
+					if(!whoseTurn) {
+						gameArr[i][j] = 'O';
+						whoseTurn = !whoseTurn;
+						return;
+					}
+				}
+			}
+		}
+		whoseTurn = !whoseTurn;
+		throw new IllegalArgumentException("Please input a number that has not already been input.");
+		
 	}
 }

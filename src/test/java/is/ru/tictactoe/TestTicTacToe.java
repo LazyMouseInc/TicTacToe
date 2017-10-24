@@ -13,5 +13,16 @@ public class TestTicTacToe{
 		assertEquals('9', ttt.getStatus(2, 2));
 		assertEquals('5', ttt.getStatus(1, 1));
 	}
+
+	@Test
+	public void testTurn(){
+		TicTacToe ttt = new TicTacToe();
+		ttt.setStatus('1');
+		ttt.setStatus('9');
+
+		assertEquals('X', ttt.getStatus(0,0));
+		assertEquals('O', ttt.getStatus(2,2));
+
+	}
 	
 }
