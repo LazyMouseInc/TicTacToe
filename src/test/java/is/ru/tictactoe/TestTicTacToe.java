@@ -18,12 +18,9 @@ public class TestTicTacToe{
 	public void testTurn(){
 		TicTacToe ttt = new TicTacToe();
 		ttt.setStatus('1');
-		ttt.setStatus('9');
+		assertEquals('X', ttt.getStatus(0, 0));
 
-		assertEquals('X', ttt.getStatus(0,0));
-		assertEquals('O', ttt.getStatus(2,2));
-
-	}
+	} 
 
 	@Test(expected = IllegalArgumentException.class)
 	public void testIllegalInput(){
@@ -45,5 +42,4 @@ public class TestTicTacToe{
 
 		assertEquals(true, ttt.isGameOver());
 	} 
-	
 }

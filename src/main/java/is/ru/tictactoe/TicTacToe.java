@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class TicTacToe{
 
 	private static boolean gameOver = false;
+	private static int turns = 0;
 	private static boolean whoseTurn = true;
 	private static char [][] gameArr;
 
@@ -52,12 +53,14 @@ public class TicTacToe{
 			for(int j = 0; j < 3; j++) {
 				if(input == gameArr[i][j] && input != 'O' && input != 'X') {
 					if(whoseTurn) {
+						turns++;
 						gameArr[i][j] = 'X';
 						whoseTurn = !whoseTurn;
 						checkIfWinner();
 						return;
 					}
 					if(!whoseTurn) {
+						turns++;
 						gameArr[i][j] = 'O';
 						whoseTurn = !whoseTurn;
 						checkIfWinner();
@@ -66,6 +69,7 @@ public class TicTacToe{
 				}
 			}
 		}
+
 		whoseTurn = !whoseTurn;
 		throw new IllegalArgumentException("Please input a number that has not already been input.");
 		
@@ -88,18 +92,30 @@ public class TicTacToe{
 				printArray();
 				System.out.println("X is the winner!");
 			}
-			else{
+			else if(!whoseTurn) {
 				printArray();
 				System.out.println("O is the winner!");
 			}
+			return;
+
+
 		}
+		if(turns == 9){
+			gameOver = true;
+			System.out.println("Tie!");
+			return;
+		} 
 
 	}
 
 	public static boolean isGameOver(){
 		return gameOver;
 	}
-	
+
+	public static boolean isTie(){
+		return turns == 9;
+	}
+
 	public void play(){
 		while(!gameOver) {
 			try{
