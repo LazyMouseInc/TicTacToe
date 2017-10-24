@@ -54,11 +54,13 @@ public class TicTacToe{
 					if(whoseTurn) {
 						gameArr[i][j] = 'X';
 						whoseTurn = !whoseTurn;
+						checkIfWinner();
 						return;
 					}
 					if(!whoseTurn) {
 						gameArr[i][j] = 'O';
 						whoseTurn = !whoseTurn;
+						checkIfWinner();
 						return;
 					}
 				}
@@ -67,5 +69,51 @@ public class TicTacToe{
 		whoseTurn = !whoseTurn;
 		throw new IllegalArgumentException("Please input a number that has not already been input.");
 		
+	}
+
+	private static void checkIfWinner(){
+		if(	gameArr[0][0] == gameArr[0][1] && gameArr[0][0] == gameArr[0][2] ||
+			gameArr[1][0] == gameArr[1][1] && gameArr[1][0] == gameArr[1][2] ||
+			gameArr[2][0] == gameArr[2][1] && gameArr[2][0] == gameArr[2][2] ||
+			gameArr[0][0] == gameArr[1][0] && gameArr[0][0] == gameArr[2][0] ||
+			gameArr[0][1] == gameArr[1][1] && gameArr[0][1] == gameArr[2][1] ||
+			gameArr[0][2] == gameArr[1][2] && gameArr[0][2] == gameArr[2][2] ||
+			gameArr[0][0] == gameArr[1][1] && gameArr[0][0] == gameArr[2][2] ||
+			gameArr[2][0] == gameArr[1][1] && gameArr[2][0] == gameArr[0][2]	){
+
+			gameOver = true;
+			whoseTurn = !whoseTurn;
+
+			if(whoseTurn){
+				printArray();
+				System.out.println("X is the winner!");
+			}
+			else{
+				printArray();
+				System.out.println("O is the winner!");
+			}
+		}
+
+	}
+
+	public static boolean isGameOver(){
+		return gameOver;
+	}
+	
+	public void play(){
+		while(!gameOver) {
+			try{
+				printArray();
+				turn();
+			}
+			catch(IllegalArgumentException ex){
+				whoseTurn = !whoseTurn;
+			}
+		}
+	}
+
+	public static void main(String[] args){
+		TicTacToe game = new TicTacToe();
+		game.play();
 	}
 }

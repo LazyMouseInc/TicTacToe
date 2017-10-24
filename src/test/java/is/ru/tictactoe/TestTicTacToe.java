@@ -32,5 +32,18 @@ public class TestTicTacToe{
 		ttt.setStatus('1');
 		ttt.setStatus('1');
 	}
+
+	@Test
+	public void testIfWinner(){
+		TicTacToe ttt = new TicTacToe();
+
+		ttt.setStatus('1');
+		ttt.setStatus('7');
+		ttt.setStatus('2');
+		ttt.setStatus('9');
+		ttt.setStatus('3');
+
+		assertEquals(true, ttt.isGameOver());
+	} 
 	
 }
