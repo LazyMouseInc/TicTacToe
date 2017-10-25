@@ -1,4 +1,4 @@
-apply plugin: 'java-library'
+apply plugin: 'java'
 apply plugin: 'application'
 
 mainClassName = 'is.ru.tictactoe.TicTacToe'
@@ -8,17 +8,19 @@ mainClassName = 'is.ru.tictactoe.TicTacToe'
 	}
 	
 	dependencies {
+		
 		compile 'com.sparkjava:spark-core:2.6.0'
+		
 		testImplementation 'junit:junit:4.12'
 	}
-	run{
-		standardInput = System.in
-	}
-
 	task stage {
  		dependsOn installDist
 	}
 
 	task wrapper(type: Wrapper) {
-   		gradleVersion = '2.0' //version required
+   		gradleVersion = '4.2.1' //version required
+	}
+
+	run{
+		standardInput = System.in
 	}
