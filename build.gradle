@@ -3,12 +3,24 @@ apply plugin: 'application'
 
 mainClassName = 'is.ru.tictactoe.TicTacToe'
 	repositories {
-		mavenCentral()
+		//mavenCentral()
+		jcenter()
 	}
 	
 	dependencies {
+		
+		compile 'com.sparkjava:spark-core:2.6.0'
+		
 		testImplementation 'junit:junit:4.12'
 	}
+	task stage {
+ 		dependsOn installDist
+	}
+
+	task wrapper(type: Wrapper) {
+   		gradleVersion = '2.0' //version required
+	}
+
 	run{
 		standardInput = System.in
 	}
