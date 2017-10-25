@@ -18,3 +18,7 @@ mainClassName = 'is.ru.tictactoe.TicTacToe'
 	task stage {
  		dependsOn installDist
 	}
+
+	task wrapper(type: Wrapper) {
+   		gradleVersion = '2.0' //version required
+	}
