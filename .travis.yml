@@ -6,4 +6,12 @@ cache:
   directories:
   - "$HOME/.gradle/caches/"
   - "$HOME/.gradle/wrapper/"
-
+deploy:
+  provider: heroku
+  api_key:
+    secure: IOelB3rrC5HLIoWtcx1wjvbcrQ0Hq5Kb33LrTxmpCFDpLHzNBk49PfNQR90Vcd0zsooPiLjSW5rySP+wF0o+AbKHC+9eoyisWMTJP7BvneM4TIFw1Y8RGSk0txAIJ4f7wx03t1xkGqfEWu447xe2/pn98eYV5pRtTazfQEK+cMsyU/qPVAHlQvoWZTNTk+/94YxnVE34zldK/u2sGfQHY+116mC2aAVNFQ3xZIi488dHERTwi+rOEBTmnrJro7BikXF5wvAu7s1/nrY+Gi/bT0iZ8Bx+9RUEeA6R8u11DEFeGpRdmHgmVDB5dv73n/PUqjLBv3MrKoa789HdHCGAViOM8r8SzD8IUstGMt1lHvCpmGVDaLdhYXS0FHIUBu0q/2XnF9zO0hgUGAVqggFNWDDYsx1YEseaNSCIWAyENkyy0Y+rJ3/44UCdUE8pdTyZjPEkJOEeTmdiXItxw/XgstI8NL8gc5NY/su1cibDFAVTSiVyQFPYlMLumuPHSW63BTbzJaud1B1jzgFm0OhsaepxfzAgDSPy8tqMbH0HRThHP+ox824jXQnxIDKqSxX7bkCr3x5+L/e308Ti9fX3lzG5+wDL+mpiXyx2P+RaGxExWm4TTCavz5oylaZDdMLm9aWHSJa4oVGWJcKTl/rpJ7qT/IGYE4IE/GkgiwXB87c=
+  run: "git push heroku HEAD:master"
+  app: blooming-falls-18702
+  on:
+    repo: LazyMouseInc/TicTacToe
+    branch: gretar-master
