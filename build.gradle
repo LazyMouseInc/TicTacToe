@@ -3,7 +3,8 @@ apply plugin: 'application'
 
 mainClassName = 'is.ru.tictactoe.TicTacToe'
 	repositories {
-		mavenCentral()
+		//mavenCentral()
+		jcenter()
 	}
 	
 	dependencies {
