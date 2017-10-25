@@ -6,3 +6,11 @@ cache:
   directories:
   - "$HOME/.gradle/caches/"
   - "$HOME/.gradle/wrapper/"
+deploy:
+  provider: heroku
+  api_key:
+    secure: m3ShmkV7tLXHD+lrLYC6zOER140SzN0jMZjOeAVIiBjEF47C9ZUYU9M4gvuCSQ6XagWkIPgdzE5qkqValUoXvD+3/src9WqBhXYLhUoFZs2Z3adlvONA2Hsmb9CnjsQg4+iGA5EhDv790su9ep9i+Cnid28jn2ScTR8KWOXmV8y4L3aeaFEV/1nooxZQCQmww4MtQEHLtDwQ0nXKXwBSl9IvbyMTdGk723V1Wb1Bjs9i6LP4tdi5/DafCl/U/MuuK3fo6Nys0VcxnPfpLvtt2kJiVm+d/PnbyRX24EnZUvhXdSRt1ejSzUtBbLZ6jhCiYJXvnKWvO3+8tW9GwJkcOSLNkPDtq7v+LeB4Wdp7PAQEVjWe6sA9SUqzWrAkdiHRrQIKWueOJAAQwj89rwwJfmwakADz9ZoImKrOmUr/ZuzDs8/WfhvOcbidR1Q9pxOjwL9MAA0UKqZ0ZU8cNQc1/R/YwEVeqIFSRioNyRSN07fQYwzKkme0vQtOM7sYhMb+huB2puGVFAtTbtYMUJpXKp42Q0mhjWSIJ8+7l0jWlrAOuYTqxKS5dqnU+Xxpf3t2RRs9JyYGGZI1vIYRhG4wMITEmKIoQKx0FloviBLNdMJemGAJ3VDD/l5vbTBrPk3oj0K8yKJWkU1wneTyzH+muyzwxmVWI9/u0PpmRmjKvQs=
+  run: "git push heroku HEAD:master"
+  app: 'blooming-falls-18702'
+  on:
+    repo: LazyMouseInc/TicTacToe
