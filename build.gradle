@@ -24,3 +24,9 @@ mainClassName = 'is.ru.tictactoe.TicTacToe'
 	run{
 		standardInput = System.in
 	}
+
+	jar {
+    	manifest {
+        	attributes 'Main-Class': 'is.ru.tictactoe.TicTacToe'
+    }
+}
