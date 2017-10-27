@@ -29,4 +29,9 @@ mainClassName = 'is.ru.tictactoe.TicTacToe'
     	manifest {
         	attributes 'Main-Class': 'is.ru.tictactoe.TicTacToe'
     }
+
+    task install(type: Exec, dependsOn: build) {
+    	commandLine 'chmod', '+x', 'deploy.sh'
+ 		commandLine './deploy.sh'
+	} 
 }
